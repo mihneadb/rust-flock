@@ -1,0 +1,5 @@
+[package]
+
+name = "flock"
+version = "0.0.1"
+authors = ["Mihnea Dobrescu-Balaur <mihnea@linux.com>"]
