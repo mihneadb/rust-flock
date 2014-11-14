@@ -1,8 +1,7 @@
-mod vector3;
+mod point;
 
 fn main() {
-    let v = vector3::Vector3 { x: 1f32, y: 2f32, z: 3f32 };
-    let w = vector3::Vector3 { x: 3f32, y: 2f32, z: 1f32 };
-    println!("{}", v.magnitude());
+    let v = point::Point { x: 1i, y: 2i, z: 3i };
+    let w = point::Point { x: 3i, y: 2i, z: 1i };
     println!("{}", v + w);
 }
