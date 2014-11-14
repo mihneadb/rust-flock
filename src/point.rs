@@ -13,3 +13,11 @@ impl Add<Point, Point> for Point {
                 z: self.z + other.z }
     }
 }
+
+impl Sub<Point, Point> for Point {
+    fn sub(&self, other: &Point) -> Point {
+        Point { x: self.x - other.x,
+                y: self.y - other.y,
+                z: self.z - other.z }
+    }
+}
