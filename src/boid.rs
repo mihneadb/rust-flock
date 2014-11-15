@@ -1,7 +1,6 @@
 use point::Point;
-mod point;
 
-#[deriving(Show)]
+#[deriving(Show, Default)]
 pub struct Boid {
     pub position: Point,
     pub velocity: Point,
