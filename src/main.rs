@@ -12,6 +12,7 @@ use boid::{
 };
 use app::App;
 use std::default::Default;
+use std::rand::{task_rng, Rng};
 use sdl2_window::Sdl2Window;
 use opengl_graphics::Gl;
 use shader_version::opengl::OpenGL_3_2;
@@ -26,6 +27,8 @@ mod point;
 mod boid;
 mod app;
 
+const SPEED_AMPLITUDE: f64 = 100.0;
+
 
 fn make_boids() -> Vec<Boid> {
     let mut v = Vec::new();
@@ -33,13 +36,20 @@ fn make_boids() -> Vec<Boid> {
         for y in range(0i, 20) {
             let b = Boid {
                 position: Point { x: MARGIN * x as f64, y: MARGIN * y as f64, z: 0.0 },
-                velocity: Point { x: 2.0, y: 2.0, z: 0.0 },
+                velocity: random_speed(),
                 ..Default::default()
             };
             v.push(b);
         }
     }
     v
+}
+
+fn random_speed() -> Point {
+    let mut rng = task_rng();
+    Point { x: rng.gen_range(-SPEED_AMPLITUDE, SPEED_AMPLITUDE),
+            y: rng.gen_range(-SPEED_AMPLITUDE, SPEED_AMPLITUDE),
+            z: 0.0 }
 }
 
 

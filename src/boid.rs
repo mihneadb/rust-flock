@@ -11,6 +11,7 @@ use graphics::{
 use opengl_graphics::Gl;
 use piston::{
     RenderArgs,
+    UpdateArgs
 };
 
 
@@ -33,7 +34,7 @@ impl Boid {
             .draw(gl);
     }
 
-    pub fn update_position(&mut self) {
-        self.position = self.position + self.velocity;
+    pub fn update_position(&mut self, args: &UpdateArgs) {
+        self.position = self.position + self.velocity * args.dt;
     }
 }

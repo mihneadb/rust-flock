@@ -21,3 +21,11 @@ impl Sub<Point, Point> for Point {
                 z: self.z - other.z }
     }
 }
+
+impl Mul<f64, Point> for Point {
+    fn mul(&self, other: &f64) -> Point {
+        Point { x: self.x * *other,
+                y: self.y * *other,
+                z: self.z * *other }
+    }
+}
