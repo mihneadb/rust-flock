@@ -33,6 +33,7 @@ fn make_boids() -> Vec<Boid> {
         for y in range(0i, 20) {
             let b = Boid {
                 position: Point { x: MARGIN * x as f64, y: MARGIN * y as f64, z: 0.0 },
+                velocity: Point { x: 2.0, y: 2.0, z: 0.0 },
                 ..Default::default()
             };
             v.push(b);

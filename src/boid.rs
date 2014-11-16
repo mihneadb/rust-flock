@@ -32,4 +32,8 @@ impl Boid {
             .rgba(1.0, 1.0, 1.0, 1.0)
             .draw(gl);
     }
+
+    pub fn update_position(&mut self) {
+        self.position = self.position + self.velocity;
+    }
 }
