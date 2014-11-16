@@ -7,6 +7,7 @@ extern crate event;
 
 use point::Point;
 use boid::Boid;
+use app::App;
 use std::default::Default;
 use sdl2_window::Sdl2Window;
 use opengl_graphics::Gl;
@@ -32,12 +33,8 @@ use event::{
 
 mod point;
 mod boid;
+mod app;
 
-
-pub struct App {
-    gl: Gl,
-    boids: Vec<Boid>
-}
 
 fn make_boids() -> Vec<Boid> {
     let mut v = Vec::new();
@@ -53,22 +50,6 @@ fn make_boids() -> Vec<Boid> {
     v
 }
 
-impl App {
-    fn render<W: Window>(&mut self, _: &mut W, args: &RenderArgs) {
-        let context = &Context::abs(args.width as f64, args.height as f64);
-        context.rgba(0.0, 1.0, 0.0, 1.0).draw(&mut self.gl);
-
-        context
-            .trans((args.width / 2) as f64, (args.height / 2) as f64)
-            .rect(0.0, 0.0, 50.0, 50.0)
-            .rgba(1.0, 0.0, 0.0, 1.0)
-            .trans(-25.0, -25.0)
-            .draw(&mut self.gl);
-    }
-
-    fn update<W: Window>(&mut self, _: &mut W, args: &UpdateArgs) {
-    }
-}
 
 fn main() {
     let window = Sdl2Window::new(
