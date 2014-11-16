@@ -16,7 +16,9 @@ use boid::Boid;
 
 pub struct App {
     pub gl: Gl,
-    pub boids: Vec<Boid>
+    pub boids: Vec<Boid>,
+    pub width: u32,
+    pub height: u32
 }
 
 impl App {
@@ -33,7 +35,7 @@ impl App {
 
     pub fn update<W: Window>(&mut self, _: &mut W, args: &UpdateArgs) {
         for boid in self.boids.iter_mut() {
-            boid.update_position(args);
+            boid.update_position(args, self.width, self.height);
         }
     }
 }

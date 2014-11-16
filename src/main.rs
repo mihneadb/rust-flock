@@ -30,10 +30,11 @@ mod app;
 const SPEED_AMPLITUDE: f64 = 100.0;
 
 
-fn make_boids() -> Vec<Boid> {
+fn make_boids(num: int) -> Vec<Boid> {
+    // makes num^2 boids
     let mut v = Vec::new();
-    for x in range(0i, 20) {
-        for y in range(0i, 20) {
+    for x in range(1i, num + 1) {
+        for y in range(1i, num + 1) {
             let b = Boid {
                 position: Point { x: MARGIN * x as f64, y: MARGIN * y as f64, z: 0.0 },
                 velocity: random_speed(),
@@ -58,8 +59,12 @@ fn main() {
         OpenGL_3_2,
         piston::WindowSettings::default()
     );
+    let window_args = piston::WindowSettings::default();
 
-    let mut app = App { gl: Gl::new(OpenGL_3_2), boids: make_boids() };
+    let mut app = App { gl: Gl::new(OpenGL_3_2),
+                        boids: make_boids(20),
+                        width: window_args.size[0],
+                        height: window_args.size[1] };
 
     let window = RefCell::new(window);
     for e in Events::new(&window) {
