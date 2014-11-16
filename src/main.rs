@@ -16,20 +16,8 @@ use sdl2_window::Sdl2Window;
 use opengl_graphics::Gl;
 use shader_version::opengl::OpenGL_3_2;
 use std::cell::RefCell;
-use piston::{
-    RenderArgs,
-    UpdateArgs
-};
-use graphics::{
-    Context,
-    AddRectangle,
-    AddColor,
-    Draw,
-    RelativeTransform2d
-};
 use event::{
     Events,
-    Window,
     RenderEvent,
     UpdateEvent
 };

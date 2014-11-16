@@ -1,10 +1,8 @@
 extern crate graphics;
 
 use point::Point;
-use app::App;
 use graphics::{
     Context,
-    AddRectangle,
     AddColor,
     Draw,
     RelativeTransform2d,
@@ -13,7 +11,6 @@ use graphics::{
 use opengl_graphics::Gl;
 use piston::{
     RenderArgs,
-    UpdateArgs
 };
 
 
@@ -28,7 +25,7 @@ pub struct Boid {
 }
 
 impl Boid {
-    pub fn render(&self, context: &Context, gl: &mut Gl, args: &RenderArgs) {
+    pub fn render(&self, context: &Context, gl: &mut Gl, _args: &RenderArgs) {
         context
             .trans(MARGIN + self.position.x, MARGIN + self.position.y)
             .circle(0.0, 0.0, RADIUS)
