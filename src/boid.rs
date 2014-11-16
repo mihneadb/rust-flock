@@ -15,7 +15,7 @@ use piston::{
 };
 
 
-const RADIUS: f64 = 5.0;
+const RADIUS: f64 = 3.0;
 pub const MARGIN: f64 = 20.0;
 
 #[deriving(Show, Default)]
