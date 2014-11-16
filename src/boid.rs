@@ -29,7 +29,7 @@ impl Boid {
         context
             .trans(MARGIN + self.position.x, MARGIN + self.position.y)
             .circle(0.0, 0.0, RADIUS)
-            .rgba(1.0, 0.0, 0.0, 1.0)
+            .rgba(1.0, 1.0, 1.0, 1.0)
             .draw(gl);
     }
 }
