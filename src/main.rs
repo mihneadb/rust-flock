@@ -6,7 +6,10 @@ extern crate shader_version;
 extern crate event;
 
 use point::Point;
-use boid::Boid;
+use boid::{
+    Boid,
+    MARGIN
+};
 use app::App;
 use std::default::Default;
 use sdl2_window::Sdl2Window;
@@ -41,7 +44,7 @@ fn make_boids() -> Vec<Boid> {
     for x in range(0i, 20) {
         for y in range(0i, 20) {
             let b = Boid {
-                position: Point { x: 5 * x, y: 5 * y, z: 0i },
+                position: Point { x: MARGIN * x as f64, y: MARGIN * y as f64, z: 0.0 },
                 ..Default::default()
             };
             v.push(b);

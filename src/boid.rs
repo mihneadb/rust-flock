@@ -7,13 +7,18 @@ use graphics::{
     AddRectangle,
     AddColor,
     Draw,
-    RelativeTransform2d
+    RelativeTransform2d,
+    AddEllipse
 };
 use opengl_graphics::Gl;
 use piston::{
     RenderArgs,
     UpdateArgs
 };
+
+
+const RADIUS: f64 = 5.0;
+pub const MARGIN: f64 = 20.0;
 
 #[deriving(Show, Default)]
 pub struct Boid {
@@ -25,10 +30,9 @@ pub struct Boid {
 impl Boid {
     pub fn render(&self, context: &Context, gl: &mut Gl, args: &RenderArgs) {
         context
-            .trans((args.width / 2) as f64, (args.height / 2) as f64)
-            .rect(0.0, 0.0, 50.0, 50.0)
+            .trans(MARGIN + self.position.x, MARGIN + self.position.y)
+            .circle(0.0, 0.0, RADIUS)
             .rgba(1.0, 0.0, 0.0, 1.0)
-            .trans(-25.0, -25.0)
             .draw(gl);
     }
 }

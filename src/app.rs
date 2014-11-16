@@ -31,14 +31,10 @@ impl App {
         let context = &Context::abs(args.width as f64, args.height as f64);
         context.rgba(0.0, 1.0, 0.0, 1.0).draw(&mut self.gl);
 
-        //context
-            //.trans((args.width / 2) as f64, (args.height / 2) as f64)
-            //.rect(0.0, 0.0, 50.0, 50.0)
-            //.rgba(1.0, 0.0, 0.0, 1.0)
-            //.trans(-25.0, -25.0)
-            //.draw(&mut self.gl);
-
-        self.boids[0].render(context, &mut self.gl, args);
+        for boid in self.boids.iter() {
+            boid.render(context, &mut self.gl, args);
+        }
+        //self.boids[0].render(context, &mut self.gl, args);
     }
 
     pub fn update<W: Window>(&mut self, _: &mut W, args: &UpdateArgs) {

@@ -1,9 +1,9 @@
 
 #[deriving(Show, Default)]
 pub struct Point {
-    pub x: int,
-    pub y: int,
-    pub z: int
+    pub x: f64,
+    pub y: f64,
+    pub z: f64
 }
 
 impl Add<Point, Point> for Point {
