@@ -5,7 +5,7 @@ use graphics::{
     Context,
     AddColor,
     Draw,
-    RelativeTransform2d,
+    RelativeTransform,
     AddEllipse
 };
 use opengl_graphics::Gl;
