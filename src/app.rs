@@ -34,8 +34,10 @@ impl App {
     }
 
     pub fn update<W: Window>(&mut self, _: &mut W, args: &UpdateArgs) {
-        for boid in self.boids.iter_mut() {
-            boid.update_position(args, self.width, self.height);
+        let boids = self.boids.clone();
+        for i in range(0u, self.boids.len()) {
+            let mut boid = &mut self.boids[i];
+            boid.update_position(args, self.width, self.height, boids, i);
         }
     }
 }

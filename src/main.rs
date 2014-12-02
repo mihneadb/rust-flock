@@ -62,7 +62,7 @@ fn main() {
     let window_args = piston::WindowSettings::default();
 
     let mut app = App { gl: Gl::new(OpenGL_3_2),
-                        boids: make_boids(20),
+                        boids: make_boids(13),
                         width: window_args.size[0],
                         height: window_args.size[1] };
 

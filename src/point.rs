@@ -32,9 +32,18 @@ impl Mul<f64, Point> for Point {
 }
 
 impl Point {
-    fn distance_to(&self, other: &Point) -> f64 {
+    pub fn distance_to(&self, other: &Point) -> f64 {
         (self.x - other.x).powi(2) +
             (self.y - other.y).powi(2) +
             (self.z - other.z).powi(2)
+    }
+
+    pub fn normalize(&self) -> Point {
+        let magnitude = (self.x.powi(2) + self.y.powi(2) + self.z.powi(2)).sqrt();
+        Point {
+            x: self.x / magnitude,
+            y: self.y / magnitude,
+            z: self.z / magnitude
+        }
     }
 }
