@@ -1,3 +1,4 @@
+use std::num::Float;
 
 #[deriving(Show, Default)]
 pub struct Point {
@@ -27,5 +28,13 @@ impl Mul<f64, Point> for Point {
         Point { x: self.x * *other,
                 y: self.y * *other,
                 z: self.z * *other }
+    }
+}
+
+impl Point {
+    fn distance_to(&self, other: &Point) -> f64 {
+        (self.x - other.x).powi(2) +
+            (self.y - other.y).powi(2) +
+            (self.z - other.z).powi(2)
     }
 }
